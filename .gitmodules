@@ -1,0 +1,6 @@
+[submodule "gpio-manager"]
+	path = gpio-manager
+	url = git@github.com:Rembunator/gpio-manager.git
+[submodule "gpio"]
+	path = gpio
+	url = git@github.com:Rembunator/gpio-lib.git
