@@ -1,1 +1,1 @@
-# odroid_gpio_manager
+# gpio-manager
