@@ -1,19 +1,16 @@
 # gpio-manager
 
-
-**Building**
+## Building
 
 export NDK_PROJECT_PATH=.
 
 ndk-build NDK_APPLICATION_MK=./Application.mk
 
-
-**Pushing to the Android device**
+## Pushing to the Android device
 
 adb push main /data/path-to-app
 
-
-**References**
+## References
 
 This project was based on information coming from these sources:
 
