@@ -10,8 +10,14 @@
 #include <fstream>
 #include <vector>
 #include <unordered_map>
+#include <libgen.h>
+#include <iostream>
+#include <limits.h>
+//ToDo: cleanup includes
 
 using namespace std;
+
+const int MAX_PATH = 1024;
 
 int poll_files(pollfd * poll_list, int polllListSize);
 
@@ -24,35 +30,45 @@ struct gpioInit
 };
 unordered_map<int, gpioInit> gpioInitMap;
 
-void my_handler(int s){
-           printf("Caught signal %d\n",s);
+void exitHandler(int s)
+{
+    printf("Caught signal %d\n",s);
 
-           GPIOClass *gpio;
+    GPIOClass *gpio;
 
-           for ( auto it : gpioInitMap )
-           {
-               gpio = it.second.gpio;
-               delete gpio;
-           }
-           exit(1); 
+    for ( auto it : gpioInitMap )
+    {
+        gpio = it.second.gpio;
+        delete gpio;
+    }
+    exit(1); 
+}
 
+string getExeDir()
+{
+    // Find current executable path
+    char res[ MAX_PATH ];
+    ssize_t count = readlink( "/proc/self/exe", res, MAX_PATH );
+    const char *path;
+
+    if (count != -1) {
+        path = dirname(res);
+    }
+    return path;
 }
 
 int main() 
 {
-   struct sigaction sigIntHandler;
-
-   sigIntHandler.sa_handler = my_handler;
-   sigemptyset(&sigIntHandler.sa_mask);
-   sigIntHandler.sa_flags = 0;
-
-   sigaction(SIGINT, &sigIntHandler, NULL);
-
-
+    // Catch user interrupts
+    struct sigaction sigIntHandler;
+    sigIntHandler.sa_handler = exitHandler;
+    sigemptyset(&sigIntHandler.sa_mask);
+    sigIntHandler.sa_flags = 0;
+    sigaction(SIGINT, &sigIntHandler, NULL);
 
     int fdConfig;
     char configFile[19] = "gpio_inputs.config";
-    ifstream infile(configFile);
+    ifstream infile( getExeDir() + "/" + configFile);
 
     if ( !infile )
     {
@@ -150,24 +166,4 @@ int poll_files(pollfd * poll_list, int pollListSize)
     }
 
     return retval;
-    
-    // if (((poll_list[0].revents&POLLHUP) == POLLHUP) ||
-    //     ((poll_list[0].revents&POLLERR) == POLLERR) ||
-    //     ((poll_list[0].revents&POLLNVAL) == POLLNVAL) ||
-    //     ((poll_list[1].revents&POLLHUP) == POLLHUP) ||
-    //     ((poll_list[1].revents&POLLERR) == POLLERR) ||
-    //     ((poll_list[1].revents&POLLNVAL) == POLLNVAL))
-    //     return 0;
-
-    // if((poll_list[0].revents&POLLIN) == POLLIN)
-    // handle(poll_list[0].fd,NORMAL_DATA);
-
-    // if((poll_list[0].revents&POLLPRI) == POLLPRI)
-    // handle(poll_list[0].fd,HIPRI_DATA);
-
-    // if((poll_list[1].revents&POLLIN) == POLLIN)
-    // handle(poll_list[1].fd,NORMAL_DATA);
-
-    // if((poll_list[1].revents&POLLPRI) == POLLPRI)
-    // handle(poll_list[1].fd,HIPRI_DATA);
 }

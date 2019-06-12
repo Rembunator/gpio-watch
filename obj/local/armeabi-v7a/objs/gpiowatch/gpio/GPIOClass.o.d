@@ -1,9 +1,7 @@
-./obj/local/armeabi-v7a/objs/main/main.o: main.cpp \
-  /home/remco/Android/Sdk/ndk/20.0.5594570/sources/cxx-stl/llvm-libc++/include/stdlib.h \
-  /home/remco/Android/Sdk/ndk/20.0.5594570/sources/cxx-stl/llvm-libc++/include/__config \
-  /home/remco/Android/Sdk/ndk/20.0.5594570/sources/cxx-stl/llvm-libc++/include/stdio.h \
-  gpio/GPIOClass.h \
+./obj/local/armeabi-v7a/objs/gpiowatch/gpio/GPIOClass.o: \
+  gpio/GPIOClass.cpp gpio/GPIOClass.h \
   /home/remco/Android/Sdk/ndk/20.0.5594570/sources/cxx-stl/llvm-libc++/include/string \
+  /home/remco/Android/Sdk/ndk/20.0.5594570/sources/cxx-stl/llvm-libc++/include/__config \
   /home/remco/Android/Sdk/ndk/20.0.5594570/sources/cxx-stl/llvm-libc++/include/string_view \
   /home/remco/Android/Sdk/ndk/20.0.5594570/sources/cxx-stl/llvm-libc++/include/__string \
   /home/remco/Android/Sdk/ndk/20.0.5594570/sources/cxx-stl/llvm-libc++/include/algorithm \
@@ -22,6 +20,7 @@
   /home/remco/Android/Sdk/ndk/20.0.5594570/sources/cxx-stl/llvm-libc++/include/typeinfo \
   /home/remco/Android/Sdk/ndk/20.0.5594570/sources/cxx-stl/llvm-libc++/include/exception \
   /home/remco/Android/Sdk/ndk/20.0.5594570/sources/cxx-stl/llvm-libc++/include/cstdlib \
+  /home/remco/Android/Sdk/ndk/20.0.5594570/sources/cxx-stl/llvm-libc++/include/stdlib.h \
   /home/remco/Android/Sdk/ndk/20.0.5594570/sources/cxx-stl/llvm-libc++/include/new \
   /home/remco/Android/Sdk/ndk/20.0.5594570/sources/cxx-stl/llvm-libc++/include/limits \
   /home/remco/Android/Sdk/ndk/20.0.5594570/sources/cxx-stl/llvm-libc++/include/iterator \
@@ -35,6 +34,7 @@
   /home/remco/Android/Sdk/ndk/20.0.5594570/sources/cxx-stl/llvm-libc++/include/functional \
   /home/remco/Android/Sdk/ndk/20.0.5594570/sources/cxx-stl/llvm-libc++/include/bit \
   /home/remco/Android/Sdk/ndk/20.0.5594570/sources/cxx-stl/llvm-libc++/include/cstdio \
+  /home/remco/Android/Sdk/ndk/20.0.5594570/sources/cxx-stl/llvm-libc++/include/stdio.h \
   /home/remco/Android/Sdk/ndk/20.0.5594570/sources/cxx-stl/llvm-libc++/include/cwchar \
   /home/remco/Android/Sdk/ndk/20.0.5594570/sources/cxx-stl/llvm-libc++/include/cwctype \
   /home/remco/Android/Sdk/ndk/20.0.5594570/sources/cxx-stl/llvm-libc++/include/cctype \
@@ -65,31 +65,13 @@
   /home/remco/Android/Sdk/ndk/20.0.5594570/sources/cxx-stl/llvm-libc++/include/__bsd_locale_fallbacks.h \
   /home/remco/Android/Sdk/ndk/20.0.5594570/sources/cxx-stl/llvm-libc++/include/bitset \
   /home/remco/Android/Sdk/ndk/20.0.5594570/sources/cxx-stl/llvm-libc++/include/__bit_reference \
-  /home/remco/Android/Sdk/ndk/20.0.5594570/sources/cxx-stl/llvm-libc++/include/istream \
-  /home/remco/Android/Sdk/ndk/20.0.5594570/sources/cxx-stl/llvm-libc++/include/fstream \
-  /home/remco/Android/Sdk/ndk/20.0.5594570/sources/cxx-stl/llvm-libc++/include/filesystem \
-  /home/remco/Android/Sdk/ndk/20.0.5594570/sources/cxx-stl/llvm-libc++/include/stack \
-  /home/remco/Android/Sdk/ndk/20.0.5594570/sources/cxx-stl/llvm-libc++/include/deque \
-  /home/remco/Android/Sdk/ndk/20.0.5594570/sources/cxx-stl/llvm-libc++/include/__split_buffer \
-  /home/remco/Android/Sdk/ndk/20.0.5594570/sources/cxx-stl/llvm-libc++/include/iomanip \
-  /home/remco/Android/Sdk/ndk/20.0.5594570/sources/cxx-stl/llvm-libc++/include/vector \
-  /home/remco/Android/Sdk/ndk/20.0.5594570/sources/cxx-stl/llvm-libc++/include/unordered_map \
-  /home/remco/Android/Sdk/ndk/20.0.5594570/sources/cxx-stl/llvm-libc++/include/__hash_table \
-  /home/remco/Android/Sdk/ndk/20.0.5594570/sources/cxx-stl/llvm-libc++/include/cmath \
-  /home/remco/Android/Sdk/ndk/20.0.5594570/sources/cxx-stl/llvm-libc++/include/math.h \
-  /home/remco/Android/Sdk/ndk/20.0.5594570/sources/cxx-stl/llvm-libc++/include/__node_handle \
-  /home/remco/Android/Sdk/ndk/20.0.5594570/sources/cxx-stl/llvm-libc++/include/optional \
-  /home/remco/Android/Sdk/ndk/20.0.5594570/sources/cxx-stl/llvm-libc++/include/iostream
-
-/home/remco/Android/Sdk/ndk/20.0.5594570/sources/cxx-stl/llvm-libc++/include/stdlib.h:
-
-/home/remco/Android/Sdk/ndk/20.0.5594570/sources/cxx-stl/llvm-libc++/include/__config:
-
-/home/remco/Android/Sdk/ndk/20.0.5594570/sources/cxx-stl/llvm-libc++/include/stdio.h:
+  /home/remco/Android/Sdk/ndk/20.0.5594570/sources/cxx-stl/llvm-libc++/include/istream
 
 gpio/GPIOClass.h:
 
 /home/remco/Android/Sdk/ndk/20.0.5594570/sources/cxx-stl/llvm-libc++/include/string:
+
+/home/remco/Android/Sdk/ndk/20.0.5594570/sources/cxx-stl/llvm-libc++/include/__config:
 
 /home/remco/Android/Sdk/ndk/20.0.5594570/sources/cxx-stl/llvm-libc++/include/string_view:
 
@@ -127,6 +109,8 @@ gpio/GPIOClass.h:
 
 /home/remco/Android/Sdk/ndk/20.0.5594570/sources/cxx-stl/llvm-libc++/include/cstdlib:
 
+/home/remco/Android/Sdk/ndk/20.0.5594570/sources/cxx-stl/llvm-libc++/include/stdlib.h:
+
 /home/remco/Android/Sdk/ndk/20.0.5594570/sources/cxx-stl/llvm-libc++/include/new:
 
 /home/remco/Android/Sdk/ndk/20.0.5594570/sources/cxx-stl/llvm-libc++/include/limits:
@@ -152,6 +136,8 @@ gpio/GPIOClass.h:
 /home/remco/Android/Sdk/ndk/20.0.5594570/sources/cxx-stl/llvm-libc++/include/bit:
 
 /home/remco/Android/Sdk/ndk/20.0.5594570/sources/cxx-stl/llvm-libc++/include/cstdio:
+
+/home/remco/Android/Sdk/ndk/20.0.5594570/sources/cxx-stl/llvm-libc++/include/stdio.h:
 
 /home/remco/Android/Sdk/ndk/20.0.5594570/sources/cxx-stl/llvm-libc++/include/cwchar:
 
@@ -214,31 +200,3 @@ gpio/GPIOClass.h:
 /home/remco/Android/Sdk/ndk/20.0.5594570/sources/cxx-stl/llvm-libc++/include/__bit_reference:
 
 /home/remco/Android/Sdk/ndk/20.0.5594570/sources/cxx-stl/llvm-libc++/include/istream:
-
-/home/remco/Android/Sdk/ndk/20.0.5594570/sources/cxx-stl/llvm-libc++/include/fstream:
-
-/home/remco/Android/Sdk/ndk/20.0.5594570/sources/cxx-stl/llvm-libc++/include/filesystem:
-
-/home/remco/Android/Sdk/ndk/20.0.5594570/sources/cxx-stl/llvm-libc++/include/stack:
-
-/home/remco/Android/Sdk/ndk/20.0.5594570/sources/cxx-stl/llvm-libc++/include/deque:
-
-/home/remco/Android/Sdk/ndk/20.0.5594570/sources/cxx-stl/llvm-libc++/include/__split_buffer:
-
-/home/remco/Android/Sdk/ndk/20.0.5594570/sources/cxx-stl/llvm-libc++/include/iomanip:
-
-/home/remco/Android/Sdk/ndk/20.0.5594570/sources/cxx-stl/llvm-libc++/include/vector:
-
-/home/remco/Android/Sdk/ndk/20.0.5594570/sources/cxx-stl/llvm-libc++/include/unordered_map:
-
-/home/remco/Android/Sdk/ndk/20.0.5594570/sources/cxx-stl/llvm-libc++/include/__hash_table:
-
-/home/remco/Android/Sdk/ndk/20.0.5594570/sources/cxx-stl/llvm-libc++/include/cmath:
-
-/home/remco/Android/Sdk/ndk/20.0.5594570/sources/cxx-stl/llvm-libc++/include/math.h:
-
-/home/remco/Android/Sdk/ndk/20.0.5594570/sources/cxx-stl/llvm-libc++/include/__node_handle:
-
-/home/remco/Android/Sdk/ndk/20.0.5594570/sources/cxx-stl/llvm-libc++/include/optional:
-
-/home/remco/Android/Sdk/ndk/20.0.5594570/sources/cxx-stl/llvm-libc++/include/iostream:
