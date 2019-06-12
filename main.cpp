@@ -65,6 +65,7 @@ int main()
     sigemptyset(&sigIntHandler.sa_mask);
     sigIntHandler.sa_flags = 0;
     sigaction(SIGINT, &sigIntHandler, NULL);
+    sigaction(SIGTERM, &sigIntHandler, NULL);
 
     int fdConfig;
     char configFile[19] = "gpio_inputs.config";
