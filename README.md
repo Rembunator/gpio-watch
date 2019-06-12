@@ -1,14 +1,27 @@
 # gpio-watch
 
+## Prerequisites
+
+you should have the android ndk installed and the path to `ndk-build` should be in the `PATH` var.
+
+## Building and Pushing
+
+There's a script for convenience called `deploy.sh`. 
+Well... My convenience, you'll have to modify it for your own situation. 
+
 ## Building
 
-export NDK_PROJECT_PATH=.
-
-ndk-build NDK_APPLICATION_MK=./Application.mk
+```export NDK_PROJECT_PATH=.```
+```ndk-build NDK_APPLICATION_MK=./Application.mk```
 
 ## Pushing to the Android device
 
-adb push main /data/path-to-app
+To push the app and config to the android device use:  
+```adb push gpiowatch /data/<path-to-app>```  
+```adb push gpio-inputs.config /data/<path-to-app>```<sup>1</sup>
+
+<sup>1</sup>
+*The ap and config file should be in the same directory*
 
 ## References
 
