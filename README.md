@@ -1,4 +1,4 @@
-# gpio-manager
+# gpio-watch
 
 ## Building
 
