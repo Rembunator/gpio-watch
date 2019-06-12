@@ -7,7 +7,8 @@ you should have the android ndk installed and the path to `ndk-build` should be 
 ## Building and Pushing
 
 There's a script for convenience called `deploy.sh`.  
-Well... My convenience, you'll have to modify it for your own situation. 
+Well... My convenience, you'll have to modify it for your own situation.  
+You can either use the script or build and push manually.
 
 ## Building
 
