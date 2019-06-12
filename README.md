@@ -1,7 +1,7 @@
 # gpio-manager
 
 
-** Building **
+* Building *
 
 export NDK_PROJECT_PATH=.
 
