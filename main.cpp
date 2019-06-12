@@ -1,3 +1,4 @@
+#include <signal.h>
 #include <stdlib.h>
 #include <stdio.h>
 #include "gpio/GPIOClass.h"
@@ -14,16 +15,39 @@ using namespace std;
 
 int poll_files(pollfd * poll_list, int polllListSize);
 
+struct gpioInit 
+{
+    int port;
+    string command;
+    int gpioValueFd;
+    GPIOClass* gpio;
+};
+unordered_map<int, gpioInit> gpioInitMap;
+
+void my_handler(int s){
+           printf("Caught signal %d\n",s);
+
+           GPIOClass *gpio;
+
+           for ( auto it : gpioInitMap )
+           {
+               gpio = it.second.gpio;
+               delete gpio;
+           }
+           exit(1); 
+
+}
 
 int main() 
 {
-    struct gpioInit 
-    {
-        int port;
-        string command;
-        int gpioValueFd;
-    };
-    unordered_map<int, gpioInit> gpioInitMap;
+   struct sigaction sigIntHandler;
+
+   sigIntHandler.sa_handler = my_handler;
+   sigemptyset(&sigIntHandler.sa_mask);
+   sigIntHandler.sa_flags = 0;
+
+   sigaction(SIGINT, &sigIntHandler, NULL);
+
 
 
     int fdConfig;
@@ -54,6 +78,7 @@ int main()
             GPIOClass* gpio = new GPIOClass( newGpioInit.port );
             gpio->set_in();
 
+            newGpioInit.gpio        = gpio;
             newGpioInit.gpioValueFd = gpio->getValueFd();
 
             gpioInitMap[ newGpioInit.gpioValueFd ] = newGpioInit;
