@@ -6,12 +6,12 @@ you should have the android ndk installed and the path to `ndk-build` should be 
 
 ## Building and Pushing
 
-There's a script for convenience called `deploy.sh`. 
+There's a script for convenience called `deploy.sh`.  
 Well... My convenience, you'll have to modify it for your own situation. 
 
 ## Building
 
-```export NDK_PROJECT_PATH=.```
+```export NDK_PROJECT_PATH=.```  
 ```ndk-build NDK_APPLICATION_MK=./Application.mk```
 
 ## Pushing to the Android device
